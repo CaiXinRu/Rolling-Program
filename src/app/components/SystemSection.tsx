@@ -1,5 +1,5 @@
 "use client";
-import { BoxIcon, CheckIcon, UsersIcon } from "lucide-react";
+import { BoxIcon, CheckIcon } from "lucide-react";
 import React from "react";
 import { SystemData } from "../constants";
 
@@ -101,21 +101,6 @@ const SystemSection: React.FC<SystemSectionProps> = ({
                     );
                   })}
                 </ul>
-              </div>
-
-              {/* Target Clients */}
-              <div className="bg-rp-dark text-white p-6 rounded-2xl shadow-xl">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span
-                    className={`w-10 h-10 rounded-full bg-white/10 flex items-center justify-center ${getThemeTextClass()}`}
-                  >
-                    <UsersIcon className="w-5 h-5" />
-                  </span>
-                  Target Clients
-                </h3>
-                <p className="text-gray-300 leading-relaxed font-medium">
-                  {system.targetClients}
-                </p>
               </div>
 
               {/* Products List */}

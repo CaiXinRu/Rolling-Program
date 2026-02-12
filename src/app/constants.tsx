@@ -2,18 +2,24 @@
 
 import {
   BarChart3,
+  Briefcase,
   Building2,
   Construction,
   Cpu,
   CreditCard,
   Globe,
+  Hand,
+  Landmark,
   Lock,
   School,
   Search,
   ShieldCheck,
+  ShoppingBag,
+  Store,
   Truck,
   Users,
   Warehouse,
+  Hospital,
 } from "lucide-react";
 import LicensePlateRecognitionImage from "./images/License Plate Recognition.png";
 import ParkVisionKioskImage from "./images/ParkVision Payment Kiosk.png";
@@ -35,6 +41,11 @@ export interface SystemData {
   products: SystemProduct[];
   themeColor: string;
   targetClients: string;
+  partnerOpportunity: {
+    name: string;
+    icon: React.ReactNode;
+    description: string;
+  }[];
 }
 
 export const SYSTEMS: SystemData[] = [
@@ -66,6 +77,44 @@ export const SYSTEMS: SystemData[] = [
         description:
           "Interactive pay-on-foot station with multi-payment support.",
         image: ParkVisionKioskImage.src,
+      },
+    ],
+    partnerOpportunity: [
+      {
+        name: "Manual Operations",
+        icon: <Hand className="w-8 h-8" />,
+        description:
+          "Say goodbye to tedious manual fee collection and ticket management. Our system minimizes human error while maximizing and providing full transparency for your revenue.",
+      },
+      {
+        name: "Markets",
+        icon: <Store className="w-8 h-8" />,
+        description:
+          "Effortlessly handle the high traffic and short-term parking demands of markets. Provide a quick and easy payment process to increase parking space turnover and make shopping easier for your customers.",
+      },
+      {
+        name: "Malls",
+        icon: <ShoppingBag className="w-8 h-8" />,
+        description:
+          "Seamlessly integrate the parking and shopping experience with support for diverse payment methods and retail validation.",
+      },
+      {
+        name: "Offices",
+        icon: <Briefcase className="w-8 h-8" />,
+        description:
+          "Offer convenient monthly parking solutions for employees while simplifying the validation process for visitors, enhancing your corporate image and operational efficiency.",
+      },
+      {
+        name: "Government",
+        icon: <Landmark className="w-8 h-8" />,
+        description:
+          "Provide a clear and efficient management solution for both official vehicles and the general public, improving the quality of government services.",
+      },
+      {
+        name: "Hospitals",
+        icon: <Hospital className="w-8 h-8" />,
+        description:
+          "In times when care is most needed, we provide the simplest, most stress-free payment options to ensure a smoother and easier experience for patients and visitors.",
       },
     ],
   },
@@ -100,40 +149,45 @@ export const SYSTEMS: SystemData[] = [
         image: PlateReadEdgeImage.src,
       },
     ],
+    partnerOpportunity: [
+      {
+        name: "Gated Communities & HOAs",
+        icon: <Users className="w-8 h-8" />,
+        description:
+          "Enhance community security, streamline visitor management, and create a more convenient living experience for residents with intelligent access solutions.",
+      },
+      {
+        name: "Apartments & Multi-Family",
+        icon: <Building2 className="w-8 h-8" />,
+        description:
+          "Implement automated, secure access control to boost tenant satisfaction and streamline property management for your apartment buildings.",
+      },
+      {
+        name: "Commercial & Industrial",
+        icon: <Warehouse className="w-8 h-8" />,
+        description:
+          "From employees and visitors to cargo vehicles, strengthen access control with automated workflows to optimize your operational security and logistical efficiency.",
+      },
+      {
+        name: "Self-Storage & Warehouses",
+        icon: <Cpu className="w-8 h-8" />,
+        description:
+          "Provide customers with secure, convenient 24/7 self-access, while enhancing overall facility security and management effectiveness.",
+      },
+      {
+        name: "Construction Sites",
+        icon: <Construction className="w-8 h-8" />,
+        description:
+          "Protect your valuable on-site assets and prevent unauthorized entry with strict access controls for both personnel and vehicles.",
+      },
+      {
+        name: "Campuses & Private Roads",
+        icon: <School className="w-8 h-8" />,
+        description:
+          "Effectively manage vehicle access and monitor traffic on campuses and private roads, creating a safer, more orderly environment for students, faculty, staff, and visitors.",
+      },
+    ],
   },
-  // {
-  //   id: "semiconductor-control",
-  //   title: "Semiconductor Fab Sensing & Control Solution",
-  //   shortDesc: "Powered by partner Microprogram Information Co., Ltd.",
-  //   fullDesc:
-  //     'This solution is provided by our partner, "Microprogram Information Co., Ltd.," and is specifically designed for the semiconductor industry. Centered on the "SemiSensor" brand of high-precision, industrial-grade sensors, it provides reliable data acquisition and real-time control to enhance process stability.',
-  //   image:
-  //     "https://images.unsplash.com/photo-1591815302525-756a9bcc3425?auto=format&fit=crop&q=80&w=800",
-  //   themeColor: "rp-orange",
-  //   features: [
-  //     "Process Environment Monitoring: Precise tracking of temp, humidity, pressure, and particles in cleanrooms.",
-  //     "Equipment Health Monitoring: Predict failure and improve OEE through status integration.",
-  //     "Facility System Integration: Applied in gas/chemical supply or ultra-pure water systems for safe operation.",
-  //   ],
-  //   targetClients:
-  //     "Semiconductor Manufacturers, OSAT (Outsourced Semiconductor Assembly and Test) companies, and related equipment and material suppliers.",
-  //   products: [
-  //     {
-  //       name: "SemiCore Controller",
-  //       description:
-  //         "Robust edge computing unit for real-time equipment interfacing.",
-  //       image:
-  //         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200",
-  //     },
-  //     {
-  //       name: "YieldGuard Module",
-  //       description:
-  //         "AI-driven anomaly detection system for early defect identification.",
-  //       image:
-  //         "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=200",
-  //     },
-  //   ],
-  // },
 ];
 
 export const TRUST_ITEMS = [

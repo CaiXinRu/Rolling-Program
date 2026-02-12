@@ -6,12 +6,11 @@ import {
   PartnerOpportunity,
   Testimonials,
   TrustBar,
-  WhoItsFor,
 } from "./components/FeaturesSection";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import SystemSection from "./components/SystemSection";
+import SystemsTabSection from "./components/SystemsTabSection";
 import { SYSTEMS } from "./constants";
 
 const App: React.FC = () => {
@@ -22,17 +21,10 @@ const App: React.FC = () => {
       <main className="flex-grow">
         <Hero />
 
-        <section id="systems" className="relative">
-          {SYSTEMS.map((system, index) => (
-            <div id={system.id} key={system.id}>
-              <SystemSection system={system} reverse={index % 2 !== 0} />
-            </div>
-          ))}
-        </section>
+        <SystemsTabSection systems={SYSTEMS} />
 
         {/* New ALPR Specific Sections */}
         <TrustBar />
-        <WhoItsFor />
         <PartnerOpportunity />
         <HowItWorks />
         <Testimonials />

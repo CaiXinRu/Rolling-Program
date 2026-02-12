@@ -2,6 +2,18 @@
 import { HouseIcon } from "lucide-react";
 import React from "react";
 
+function scrollToSystemsAndHash(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+  e.preventDefault();
+  const element = document.getElementById("systems");
+  if (element) {
+    const headerOffset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    window.location.hash = id;
+  }
+}
+
 const Footer: React.FC = () => {
   return (
     <footer id="contact" className="bg-[#111] text-white pt-20 pb-10">
@@ -42,6 +54,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#smart-parking"
+                  onClick={(e) => scrollToSystemsAndHash(e, "smart-parking")}
                   className="text-gray-400 hover:text-rp-red transition-colors"
                 >
                   Smart Parking Solutions
@@ -50,6 +63,7 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#parking-access"
+                  onClick={(e) => scrollToSystemsAndHash(e, "parking-access")}
                   className="text-gray-400 hover:text-rp-yellow transition-colors"
                 >
                   Vehicle Access Platform

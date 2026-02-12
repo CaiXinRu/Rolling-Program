@@ -5,15 +5,14 @@ import {
   CheckCircle2,
   Play,
   ShieldCheck,
-  Target,
   Zap,
 } from "lucide-react";
 import React from "react";
-import { TARGET_SECTORS, TRUST_ITEMS } from "../constants";
+import { TRUST_ITEMS } from "../constants";
 
 export const TrustBar: React.FC = () => {
   return (
-    <div className="bg-rp-dark py-12 border-b border-gray-100">
+    <div className="bg-rp-light py-12 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {TRUST_ITEMS.map((item, i) => (
@@ -24,7 +23,7 @@ export const TrustBar: React.FC = () => {
               <div className="mb-3 text-rp-red group-hover:scale-110 transition-transform">
                 {item.icon}
               </div>
-              <span className="text-xs font-bold text-white uppercase tracking-wide leading-tight px-4">
+              <span className="text-xs font-bold text-rp-dark uppercase tracking-wide leading-tight px-4">
                 {item.text}
               </span>
             </div>
@@ -32,63 +31,6 @@ export const TrustBar: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-export const WhoItsFor: React.FC = () => {
-  return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Secure, Efficient Vehicle Access for Properties That Can't Afford
-            Delays
-          </h2>
-          <p className="text-lg text-gray-600">
-            Rolling Program is built for managers and teams handling high-volume
-            access, security, and flow—without the staffing headaches.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TARGET_SECTORS.map((sector, i) => (
-            <div
-              key={i}
-              className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
-            >
-              <div className="w-16 h-16 bg-red-50 text-rp-red rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rp-red group-hover:text-white transition-colors duration-300">
-                {sector.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                {sector.name}
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Tailored automation workflows designed specifically for your
-                operational needs.
-              </p>
-            </div>
-          ))}
-          <div className="bg-rp-red p-8 rounded-3xl shadow-xl flex flex-col justify-between text-white group cursor-pointer overflow-hidden relative">
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4">Ready to automate?</h3>
-              <p className="text-white/80 text-sm mb-6">
-                Join hundreds of property managers scaling their security
-                infrastructure.
-              </p>
-              <a
-                href="https://mail.google.com/mail/?view=cm&to=sales@program.com.tw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-black uppercase tracking-widest text-xs hover:translate-x-2 transition-transform"
-              >
-                Book a Demo <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-            <Target className="absolute -bottom-8 -right-8 w-40 h-40 text-white/10" />
-          </div>
-        </div>
-      </div>
-    </section>
   );
 };
 

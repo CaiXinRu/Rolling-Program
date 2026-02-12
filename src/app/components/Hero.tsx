@@ -19,12 +19,15 @@ const Hero: React.FC = () => {
     }
   };
 
+  const TABBED_SYSTEM_IDS = ["smart-parking", "parking-access"];
+
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string,
   ) => {
     e.preventDefault();
-    const element = document.getElementById(id);
+    const scrollTargetId = TABBED_SYSTEM_IDS.includes(id) ? "systems" : id;
+    const element = document.getElementById(scrollTargetId);
     if (element) {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -34,6 +37,9 @@ const Hero: React.FC = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
+      if (TABBED_SYSTEM_IDS.includes(id)) {
+        window.location.hash = id;
+      }
     }
   };
 
