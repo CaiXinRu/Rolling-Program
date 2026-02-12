@@ -92,9 +92,9 @@ const Footer: React.FC = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   ></path>
                 </svg>
-                123 Innovation Drive,
+                7F, No. 402, Shizheng Road,
                 <br />
-                Tech Park, TP 90210
+                Xitun District, Taichung City 407
               </p>
               <p className="flex items-center gap-3">
                 <svg
