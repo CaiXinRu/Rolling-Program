@@ -1,6 +1,8 @@
 "use client";
 import { HouseIcon } from "lucide-react";
+import Image from "next/image";
 import React from "react";
+import Logo from "../images/RP_LOGO.png";
 
 function scrollToSystemsAndHash(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
   e.preventDefault();
@@ -21,15 +23,15 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Col */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded bg-gradient-to-br from-rp-red to-rp-orange flex items-center justify-center">
-                <span className="text-white font-bold text-xl leading-none">
-                  R
-                </span>
-              </div>
-              <span className="text-white font-bold text-2xl tracking-tight">
-                Rolling <span className="text-rp-red">Program</span>
-              </span>
+            <div className="flex items-center gap-2 mb-6 bg-white rounded-lg p-2 w-fit">
+              <Image
+                src={Logo}
+                alt="Rolling Program Logo"
+                width={Logo.width}
+                height={Logo.height}
+                className="h-12 w-auto object-contain"
+                style={{ maxWidth: 220 }}
+              />
             </div>
             <p className="text-gray-400 max-w-sm mb-8">
               Delivering robust, scalable, and intelligent control systems for
