@@ -76,7 +76,9 @@ export const WhoItsFor: React.FC = () => {
                 infrastructure.
               </p>
               <a
-                href="mailto:naomi@program.com.tw"
+                href="https://mail.google.com/mail/?view=cm&to=naomi@program.com.tw"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center font-black uppercase tracking-widest text-xs hover:translate-x-2 transition-transform"
               >
                 Book a Demo <ArrowRight className="ml-2 w-4 h-4" />
@@ -125,7 +127,9 @@ export const PartnerOpportunity: React.FC = () => {
               ))}
             </ul>
             <a
-              href="mailto:naomi@program.com.tw"
+              href="https://mail.google.com/mail/?view=cm&to=naomi@program.com.tw"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-rp-orange text-white font-bold rounded-full hover:scale-105 transition-transform"
             >
               Become a Partner
@@ -292,13 +296,17 @@ export const FinalCTA: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           <a
-            href="mailto:naomi@program.com.tw"
+            href="https://mail.google.com/mail/?view=cm&to=naomi@program.com.tw"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-10 py-5 bg-white text-rp-red font-black uppercase tracking-widest text-lg rounded-full hover:scale-105 transition-transform shadow-2xl"
           >
             Book a Demo
           </a>
           <a
-            href="mailto:naomi@program.com.tw"
+            href="https://mail.google.com/mail/?view=cm&to=naomi@program.com.tw"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-10 py-5 bg-transparent border-2 border-white text-white font-black uppercase tracking-widest text-lg rounded-full hover:bg-white hover:text-rp-red transition-all"
           >
             Talk to Sales

@@ -111,7 +111,9 @@ const Footer: React.FC = () => {
                   ></path>
                 </svg>
                 <a
-                  href="mailto:info@rollingprogram.com"
+                  href="https://mail.google.com/mail/?view=cm&to=naomi@program.com.tw"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
                   info@rollingprogram.com
