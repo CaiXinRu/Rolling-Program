@@ -55,14 +55,14 @@ const Footer: React.FC = () => {
                   Vehicle Access Platform
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#semiconductor-control"
                   className="text-gray-400 hover:text-rp-orange transition-colors"
                 >
                   Semiconductor Fab Solutions
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 

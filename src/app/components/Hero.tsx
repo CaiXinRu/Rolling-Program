@@ -3,6 +3,8 @@ import { Zap } from "lucide-react";
 import React from "react";
 import { SYSTEMS } from "../constants";
 
+const HERO_BG_IMAGE = "/car-outdoor.png";
+
 const Hero: React.FC = () => {
   const getHoverTextClass = (color: string) => {
     switch (color) {
@@ -38,9 +40,16 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-rp-dark overflow-hidden"
+      className="relative pt-32 pb-20 md:pt-48 md:pb-36 overflow-hidden"
+      style={{
+        backgroundImage: `url(${HERO_BG_IMAGE})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-black/75" aria-hidden />
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-rp-red/20 blur-[100px]"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-rp-orange/10 blur-[120px]"></div>
         <div
@@ -65,7 +74,7 @@ const Hero: React.FC = () => {
               License Plate Recognition
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-rp-gray mb-12 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-rp-light mb-12 max-w-3xl leading-relaxed">
             Eliminate manual checks, speed up entry, block threats instantly,
             and gain full visibility with searchable logs, traffic analytics,
             and optional paid access—managed from one simple dashboard.

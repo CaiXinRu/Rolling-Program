@@ -45,7 +45,7 @@ export const SYSTEMS: SystemData[] = [
     fullDesc:
       "This solution is specifically designed for public or commercial parking facilities, aiming to achieve fully automated and unmanned management. Based on an AI-driven Automatic License Plate Recognition (ALPR) system, vehicles can enter and exit without stopping, taking a ticket, or touching any equipment.",
     image:
-      "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1568738009519-52d1bad47858?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800",
     themeColor: "rp-red",
     features: [
       "Automated Payments: Multiple smart payment methods for unmanned, automatic fee deductions.",
@@ -101,39 +101,39 @@ export const SYSTEMS: SystemData[] = [
       },
     ],
   },
-  {
-    id: "semiconductor-control",
-    title: "Semiconductor Fab Sensing & Control Solution",
-    shortDesc: "Powered by partner Microprogram Information Co., Ltd.",
-    fullDesc:
-      'This solution is provided by our partner, "Microprogram Information Co., Ltd.," and is specifically designed for the semiconductor industry. Centered on the "SemiSensor" brand of high-precision, industrial-grade sensors, it provides reliable data acquisition and real-time control to enhance process stability.',
-    image:
-      "https://images.unsplash.com/photo-1591815302525-756a9bcc3425?auto=format&fit=crop&q=80&w=800",
-    themeColor: "rp-orange",
-    features: [
-      "Process Environment Monitoring: Precise tracking of temp, humidity, pressure, and particles in cleanrooms.",
-      "Equipment Health Monitoring: Predict failure and improve OEE through status integration.",
-      "Facility System Integration: Applied in gas/chemical supply or ultra-pure water systems for safe operation.",
-    ],
-    targetClients:
-      "Semiconductor Manufacturers, OSAT (Outsourced Semiconductor Assembly and Test) companies, and related equipment and material suppliers.",
-    products: [
-      {
-        name: "SemiCore Controller",
-        description:
-          "Robust edge computing unit for real-time equipment interfacing.",
-        image:
-          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200",
-      },
-      {
-        name: "YieldGuard Module",
-        description:
-          "AI-driven anomaly detection system for early defect identification.",
-        image:
-          "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=200",
-      },
-    ],
-  },
+  // {
+  //   id: "semiconductor-control",
+  //   title: "Semiconductor Fab Sensing & Control Solution",
+  //   shortDesc: "Powered by partner Microprogram Information Co., Ltd.",
+  //   fullDesc:
+  //     'This solution is provided by our partner, "Microprogram Information Co., Ltd.," and is specifically designed for the semiconductor industry. Centered on the "SemiSensor" brand of high-precision, industrial-grade sensors, it provides reliable data acquisition and real-time control to enhance process stability.',
+  //   image:
+  //     "https://images.unsplash.com/photo-1591815302525-756a9bcc3425?auto=format&fit=crop&q=80&w=800",
+  //   themeColor: "rp-orange",
+  //   features: [
+  //     "Process Environment Monitoring: Precise tracking of temp, humidity, pressure, and particles in cleanrooms.",
+  //     "Equipment Health Monitoring: Predict failure and improve OEE through status integration.",
+  //     "Facility System Integration: Applied in gas/chemical supply or ultra-pure water systems for safe operation.",
+  //   ],
+  //   targetClients:
+  //     "Semiconductor Manufacturers, OSAT (Outsourced Semiconductor Assembly and Test) companies, and related equipment and material suppliers.",
+  //   products: [
+  //     {
+  //       name: "SemiCore Controller",
+  //       description:
+  //         "Robust edge computing unit for real-time equipment interfacing.",
+  //       image:
+  //         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200",
+  //     },
+  //     {
+  //       name: "YieldGuard Module",
+  //       description:
+  //         "AI-driven anomaly detection system for early defect identification.",
+  //       image:
+  //         "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=200",
+  //     },
+  //   ],
+  // },
 ];
 
 export const TRUST_ITEMS = [
