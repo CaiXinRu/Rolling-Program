@@ -1,4 +1,5 @@
 "use client";
+import { Zap } from "lucide-react";
 import React from "react";
 import { SYSTEMS } from "../constants";
 
@@ -54,8 +55,9 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-rp-yellow font-medium text-sm mb-6">
-            Pioneering Industrial & Commercial Automation
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 text-rp-orange text-sm font-bold uppercase tracking-wider animate-pulse">
+            <Zap className="w-4 h-4 mr-2" />
+            Live Demo Available
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
             Hands-Free Gate Access Powered by <br />

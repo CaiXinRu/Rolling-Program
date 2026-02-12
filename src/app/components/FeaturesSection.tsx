@@ -134,7 +134,7 @@ export const PartnerOpportunity: React.FC = () => {
           </div>
           <div className="order-1 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1573161158521-8034a8186197?q=80&w=1000"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1000"
               alt="Partner Program"
               className="rounded-[2.5rem] shadow-2xl border border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700"
             />
@@ -215,54 +215,59 @@ export const Testimonials: React.FC = () => {
           <h2 className="text-4xl font-extrabold mb-4">
             What Our Customers Say
           </h2>
-          <div className="text-rp-red flex justify-center space-x-1">
+          <div className="text-brand-red flex justify-center space-x-1">
             {[1, 2, 3, 4, 5].map((i) => (
               <Play key={i} className="w-4 h-4 fill-current" />
             ))}
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gray-50 p-10 rounded-[2.5rem] relative">
-            <p className="text-xl italic text-gray-700 leading-relaxed mb-8">
-              “Rolling Program turned chaotic gate logs into instant, searchable
-              intelligence—security and operations are night and day better.”
-            </p>
-            <div className="flex items-center space-x-4">
-              <img
-                src="https://picsum.photos/seed/pm1/100/100"
-                className="w-14 h-14 rounded-full"
-                alt="Avatar"
-              />
-              <div>
-                <div className="font-bold text-gray-900">James Anderson</div>
-                <div className="text-rp-red text-sm font-bold uppercase tracking-widest">
-                  Property Manager, HOA
+          <div className="bg-gray-50 p-10 rounded-[2.5rem] relative overflow-hidden">
+            <div className="relative z-10">
+              <p className="text-xl italic text-gray-700 leading-relaxed mb-8">
+                “Rolling Program turned chaotic gate logs into instant,
+                searchable intelligence—security and operations are night and
+                day better.”
+              </p>
+              <div className="flex items-center space-x-4">
+                <img
+                  src="https://i.pravatar.cc/150?u=pm1"
+                  className="w-14 h-14 rounded-full"
+                  alt="James Anderson Avatar"
+                />
+                <div>
+                  <div className="font-bold text-gray-900">James Anderson</div>
+                  <div className="text-rp-red text-sm font-bold uppercase tracking-widest">
+                    Property Manager, HOA
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-10 right-10 text-8xl text-gray-200 font-serif leading-none">
+            <div className="absolute top-4 right-8 text-8xl text-gray-200 font-serif leading-none z-0 pointer-events-none opacity-50">
               “
             </div>
           </div>
-          <div className="bg-[#212121ff] p-10 rounded-[2.5rem] relative text-white">
-            <p className="text-xl italic text-gray-300 leading-relaxed mb-8">
-              “We cut staffing needs while gaining real analytics on traffic and
-              repeats. Reporting is effortless now.”
-            </p>
-            <div className="flex items-center space-x-4">
-              <img
-                src="https://picsum.photos/seed/ops1/100/100"
-                className="w-14 h-14 rounded-full"
-                alt="Avatar"
-              />
-              <div>
-                <div className="font-bold">Sarah Jenkins</div>
-                <div className="text-rp-orange text-sm font-bold uppercase tracking-widest">
-                  Ops Director, Multi-Family
+          <div className="bg-[#212121ff] p-10 rounded-[2.5rem] relative overflow-hidden text-white">
+            <div className="relative z-10">
+              <p className="text-xl italic text-gray-300 leading-relaxed mb-8">
+                “We cut staffing needs while gaining real analytics on traffic
+                and repeats. Reporting is effortless now.”
+              </p>
+              <div className="flex items-center space-x-4">
+                <img
+                  src="https://i.pravatar.cc/150?u=ops1"
+                  className="w-14 h-14 rounded-full"
+                  alt="Sarah Jenkins Avatar"
+                />
+                <div>
+                  <div className="font-bold">Sarah Jenkins</div>
+                  <div className="text-rp-orange text-sm font-bold uppercase tracking-widest">
+                    Ops Director, Multi-Family
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="absolute top-10 right-10 text-8xl text-white/5 font-serif leading-none">
+            <div className="absolute top-4 right-8 text-8xl text-white/5 font-serif leading-none z-0 pointer-events-none">
               “
             </div>
           </div>

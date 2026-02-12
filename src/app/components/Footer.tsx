@@ -36,23 +36,15 @@ const Footer: React.FC = () => {
           {/* Links Col */}
           <div>
             <h4 className="text-lg font-bold mb-6 text-white border-b border-gray-800 pb-2 inline-block">
-              Our Systems
+              Our Solutions
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="#smart-parking"
                   className="text-gray-400 hover:text-rp-red transition-colors"
                 >
-                  Smart Parking
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#semiconductor-control"
-                  className="text-gray-400 hover:text-rp-orange transition-colors"
-                >
-                  Semiconductor Control
+                  Smart Parking Solutions
                 </a>
               </li>
               <li>
@@ -60,7 +52,15 @@ const Footer: React.FC = () => {
                   href="#parking-access"
                   className="text-gray-400 hover:text-rp-yellow transition-colors"
                 >
-                  Access Control
+                  Vehicle Access Platform
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#semiconductor-control"
+                  className="text-gray-400 hover:text-rp-orange transition-colors"
+                >
+                  Semiconductor Fab Solutions
                 </a>
               </li>
             </ul>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold mb-6 text-white border-b border-gray-800 pb-2 inline-block">
               Contact Us
             </h4>
-            <address className="not-italic text-gray-400 space-y-3">
+            <address className="not-italic text-gray-400 space-y-3 text-sm">
               <p className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 text-rp-gray mt-0.5 shrink-0"
@@ -126,14 +126,14 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Rolling Program. All rights
             reserved.
           </p>
-          <div className="flex gap-4">
+          {/* <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
             <a href="#" className="hover:text-white transition-colors">
               Terms of Service
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

@@ -22,13 +22,18 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-start items-center">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded bg-gradient-to-br from-rp-red to-rp-orange flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-            <span className="text-white font-bold text-xl leading-none">R</span>
+        <a href="#" className="flex items-center space-x-2">
+          <div className="w-10 h-10 bg-rp-red rounded-lg flex items-center justify-center transform rotate-3">
+            <span className="text-white font-black text-xl">RP</span>
           </div>
-          <span className="text-white font-bold text-xl tracking-tight">
-            Rolling <span className="text-rp-red">Program</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="font-extrabold text-xl tracking-tighter leading-none text-white">
+              ROLLING
+            </span>
+            <span className="font-bold text-xs tracking-widest text-rp-red leading-none">
+              PROGRAM
+            </span>
+          </div>
         </a>
       </div>
     </header>
