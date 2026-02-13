@@ -9,6 +9,7 @@ import {
   CreditCard,
   Globe,
   Hand,
+  Hospital,
   Landmark,
   Lock,
   School,
@@ -19,7 +20,6 @@ import {
   Truck,
   Users,
   Warehouse,
-  Hospital,
 } from "lucide-react";
 import LicensePlateRecognitionImage from "./images/License Plate Recognition.png";
 import ParkVisionKioskImage from "./images/ParkVision Payment Kiosk.png";
@@ -46,78 +46,15 @@ export interface SystemData {
     icon: React.ReactNode;
     description: string;
   }[];
+  testimonials: {
+    customerName: string;
+    feedback: string;
+    jobTitle: string;
+    imageId: string;
+  }[];
 }
 
 export const SYSTEMS: SystemData[] = [
-  {
-    id: "smart-parking",
-    title: "Smart Parking Solutions",
-    shortDesc: "Achieve fully automated and unmanned parking management.",
-    fullDesc:
-      "This solution is specifically designed for public or commercial parking facilities, aiming to achieve fully automated and unmanned management. Based on an AI-driven Automatic License Plate Recognition (ALPR) system, vehicles can enter and exit without stopping, taking a ticket, or touching any equipment.",
-    image:
-      "https://images.unsplash.com/photo-1568738009519-52d1bad47858?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800",
-    themeColor: "rp-red",
-    features: [
-      "Automated Payments: Multiple smart payment methods for unmanned, automatic fee deductions.",
-      "Cloud-Based Accounting Platform: Real-time, accurate cloud-based reports and financial management.",
-      "Enhanced Operational Efficiency: Significantly reduces labor costs and transforms the facility into a high-efficiency smart asset.",
-    ],
-    targetClients:
-      "Public Parking Facilities, Shopping Malls, Hospitals, Commercial Office Buildings.",
-    products: [
-      {
-        name: "License Plate Recognition",
-        description:
-          "AI-powered camera system for instantaneous vehicle identification and seamless automated entry.",
-        image: LicensePlateRecognitionImage.src,
-      },
-      {
-        name: "ParkVision Payment Kiosk",
-        description:
-          "Interactive pay-on-foot station with multi-payment support.",
-        image: ParkVisionKioskImage.src,
-      },
-    ],
-    partnerOpportunity: [
-      {
-        name: "Manual Operations",
-        icon: <Hand className="w-8 h-8" />,
-        description:
-          "Say goodbye to tedious manual fee collection and ticket management. Our system minimizes human error while maximizing and providing full transparency for your revenue.",
-      },
-      {
-        name: "Markets",
-        icon: <Store className="w-8 h-8" />,
-        description:
-          "Effortlessly handle the high traffic and short-term parking demands of markets. Provide a quick and easy payment process to increase parking space turnover and make shopping easier for your customers.",
-      },
-      {
-        name: "Malls",
-        icon: <ShoppingBag className="w-8 h-8" />,
-        description:
-          "Seamlessly integrate the parking and shopping experience with support for diverse payment methods and retail validation.",
-      },
-      {
-        name: "Offices",
-        icon: <Briefcase className="w-8 h-8" />,
-        description:
-          "Offer convenient monthly parking solutions for employees while simplifying the validation process for visitors, enhancing your corporate image and operational efficiency.",
-      },
-      {
-        name: "Government",
-        icon: <Landmark className="w-8 h-8" />,
-        description:
-          "Provide a clear and efficient management solution for both official vehicles and the general public, improving the quality of government services.",
-      },
-      {
-        name: "Hospitals",
-        icon: <Hospital className="w-8 h-8" />,
-        description:
-          "In times when care is most needed, we provide the simplest, most stress-free payment options to ensure a smoother and easier experience for patients and visitors.",
-      },
-    ],
-  },
   {
     id: "parking-access",
     title: "Smart Vehicle Access Control Platform",
@@ -185,6 +122,107 @@ export const SYSTEMS: SystemData[] = [
         icon: <School className="w-8 h-8" />,
         description:
           "Effectively manage vehicle access and monitor traffic on campuses and private roads, creating a safer, more orderly environment for students, faculty, staff, and visitors.",
+      },
+    ],
+    testimonials: [
+      {
+        customerName: "Sarah Jenkins",
+        feedback:
+          "Rolling Program turned chaotic gate logs into instant, searchable intelligence—security and operations are night and day better.",
+        jobTitle: "Property Manager, HOA",
+        imageId: "HOA",
+      },
+      {
+        customerName: "Nomi Anderson",
+        feedback:
+          "We cut staffing needs while gaining real analytics on traffic and repeats. Reporting is effortless now.",
+        jobTitle: "Ops Director, Multi-Family",
+        imageId: "Ops",
+      },
+    ],
+  },
+  {
+    id: "auto-parking",
+    title: "Automated Parking Solution",
+    shortDesc: "Achieve fully automated and unmanned parking management.",
+    fullDesc:
+      "This solution is specifically designed for public or commercial parking facilities, aiming to achieve fully automated and unmanned management. Based on an AI-driven Automatic License Plate Recognition (ALPR) system, vehicles can enter and exit without stopping, taking a ticket, or touching any equipment.",
+    image:
+      "https://images.unsplash.com/photo-1568738009519-52d1bad47858?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800",
+    themeColor: "rp-red",
+    features: [
+      "Automated Payments: Multiple smart payment methods for unmanned, automatic fee deductions.",
+      "Cloud-Based Accounting Platform: Real-time, accurate cloud-based reports and financial management.",
+      "Enhanced Operational Efficiency: Significantly reduces labor costs and transforms the facility into a high-efficiency smart asset.",
+    ],
+    targetClients:
+      "Public Parking Facilities, Shopping Malls, Hospitals, Commercial Office Buildings.",
+    products: [
+      {
+        name: "License Plate Recognition",
+        description:
+          "AI-powered camera system for instantaneous vehicle identification and seamless automated entry.",
+        image: LicensePlateRecognitionImage.src,
+      },
+      {
+        name: "ParkVision Payment Kiosk",
+        description:
+          "Interactive pay-on-foot station with multi-payment support.",
+        image: ParkVisionKioskImage.src,
+      },
+    ],
+    partnerOpportunity: [
+      {
+        name: "Manual Operations",
+        icon: <Hand className="w-8 h-8" />,
+        description:
+          "Say goodbye to tedious manual fee collection and ticket management. Our system minimizes human error while maximizing and providing full transparency for your revenue.",
+      },
+      {
+        name: "Markets",
+        icon: <Store className="w-8 h-8" />,
+        description:
+          "Effortlessly handle the high traffic and short-term parking demands of markets. Provide a quick and easy payment process to increase parking space turnover and make shopping easier for your customers.",
+      },
+      {
+        name: "Malls",
+        icon: <ShoppingBag className="w-8 h-8" />,
+        description:
+          "Seamlessly integrate the parking and shopping experience with support for diverse payment methods and retail validation.",
+      },
+      {
+        name: "Offices",
+        icon: <Briefcase className="w-8 h-8" />,
+        description:
+          "Offer convenient monthly parking solutions for employees while simplifying the validation process for visitors, enhancing your corporate image and operational efficiency.",
+      },
+      {
+        name: "Government",
+        icon: <Landmark className="w-8 h-8" />,
+        description:
+          "Provide a clear and efficient management solution for both official vehicles and the general public, improving the quality of government services.",
+      },
+      {
+        name: "Hospitals",
+        icon: <Hospital className="w-8 h-8" />,
+        description:
+          "In times when care is most needed, we provide the simplest, most stress-free payment options to ensure a smoother and easier experience for patients and visitors.",
+      },
+    ],
+    testimonials: [
+      {
+        customerName: "Michael Chen",
+        feedback:
+          "Transitioning to an unmanned system was the best decision for our bottom line. We’ve eliminated manual errors and now have total, real-time transparency over our revenue.",
+        jobTitle: "Operations Manager, Regional Shopping Mall",
+        imageId: "Manager",
+      },
+      {
+        customerName: "Dr. Linda Zhao",
+        feedback:
+          "In a high-stress hospital environment, the 'no-stop' entry and diverse payment options have significantly improved the visitor experience.",
+        jobTitle: "Facility Director, City Hospital",
+        imageId: "Facility",
       },
     ],
   },

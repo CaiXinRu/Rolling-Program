@@ -18,14 +18,25 @@ function indexToHash(index: number): string {
 
 interface SystemsTabSectionProps {
   systems: SystemData[];
+  /** 受控模式：由父層決定目前 tab，並在切換時回報 */
+  activeIndex?: number;
+  onTabChange?: (index: number) => void;
 }
 
-const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({ systems }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({
+  systems,
+  activeIndex: controlledIndex,
+  onTabChange,
+}) => {
+  const [internalIndex, setInternalIndex] = useState(0);
+  const isControlled = controlledIndex !== undefined && onTabChange !== undefined;
+  const activeIndex = isControlled ? controlledIndex : internalIndex;
 
   const syncFromHash = useCallback(() => {
-    setActiveIndex(hashToIndex(window.location.hash));
-  }, []);
+    const idx = hashToIndex(window.location.hash);
+    if (isControlled) onTabChange?.(idx);
+    else setInternalIndex(idx);
+  }, [isControlled, onTabChange]);
 
   useEffect(() => {
     syncFromHash();
@@ -33,10 +44,14 @@ const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({ systems }) => {
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, [syncFromHash]);
 
-  const setTab = useCallback((index: number) => {
-    setActiveIndex(index);
-    window.history.replaceState(null, "", "#" + indexToHash(index));
-  }, []);
+  const setTab = useCallback(
+    (index: number) => {
+      if (isControlled) onTabChange?.(index);
+      else setInternalIndex(index);
+      window.history.replaceState(null, "", "#" + indexToHash(index));
+    },
+    [isControlled, onTabChange],
+  );
 
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent, index: number) => {

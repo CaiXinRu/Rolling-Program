@@ -8,7 +8,7 @@ import {
   Zap,
 } from "lucide-react";
 import React from "react";
-import { TRUST_ITEMS } from "../constants";
+import { SystemData, TRUST_ITEMS } from "../constants";
 
 export const TrustBar: React.FC = () => {
   return (
@@ -153,7 +153,31 @@ export const HowItWorks: React.FC = () => {
   );
 };
 
-export const Testimonials: React.FC = () => {
+interface TestimonialsProps {
+  testimonials: SystemData["testimonials"];
+  themeColor?: string;
+}
+
+const getThemeTextClass = (themeColor: string) => {
+  switch (themeColor) {
+    case "rp-red":
+      return "text-rp-red";
+    case "rp-orange":
+      return "text-rp-orange";
+    case "rp-yellow":
+      return "text-rp-yellow";
+    default:
+      return "text-rp-red";
+  }
+};
+
+export const Testimonials: React.FC<TestimonialsProps> = ({
+  testimonials,
+  themeColor = "rp-red",
+}) => {
+  const items = testimonials.slice(0, 2);
+  if (items.length === 0) return null;
+
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -168,55 +192,58 @@ export const Testimonials: React.FC = () => {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gray-50 p-10 rounded-[2.5rem] relative overflow-hidden">
-            <div className="relative z-10">
-              <p className="text-xl italic text-gray-700 leading-relaxed mb-8">
-                “Rolling Program turned chaotic gate logs into instant,
-                searchable intelligence—security and operations are night and
-                day better.”
-              </p>
-              <div className="flex items-center space-x-4">
-                <img
-                  src="https://i.pravatar.cc/150?u=pm1"
-                  className="w-14 h-14 rounded-full"
-                  alt="James Anderson Avatar"
-                />
-                <div>
-                  <div className="font-bold text-gray-900">James Anderson</div>
-                  <div className="text-rp-red text-sm font-bold uppercase tracking-widest">
-                    Property Manager, HOA
+          {items.map((t, i) => (
+            <div
+              key={t.customerName}
+              className={
+                i === 0
+                  ? "bg-gray-50 p-10 rounded-[2.5rem] relative overflow-hidden"
+                  : "bg-[#212121ff] p-10 rounded-[2.5rem] relative overflow-hidden text-white"
+              }
+            >
+              <div className="relative z-10">
+                <p
+                  className={
+                    i === 0
+                      ? "text-xl italic text-gray-700 leading-relaxed mb-8"
+                      : "text-xl italic text-gray-300 leading-relaxed mb-8"
+                  }
+                >
+                  &ldquo;{t.feedback}&rdquo;
+                </p>
+                <div className="flex items-center space-x-4">
+                  <img
+                    src={`https://i.pravatar.cc/150?u=${t.imageId}`}
+                    className="w-14 h-14 rounded-full"
+                    alt={`${t.customerName} Avatar`}
+                  />
+                  <div>
+                    <div
+                      className={
+                        i === 0 ? "font-bold text-gray-900" : "font-bold"
+                      }
+                    >
+                      {t.customerName}
+                    </div>
+                    <div
+                      className={`${i === 0 ? getThemeTextClass(themeColor) : "text-rp-orange"} text-sm font-bold uppercase tracking-widest`}
+                    >
+                      {t.jobTitle}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute top-4 right-8 text-8xl text-gray-200 font-serif leading-none z-0 pointer-events-none opacity-50">
-              “
-            </div>
-          </div>
-          <div className="bg-[#212121ff] p-10 rounded-[2.5rem] relative overflow-hidden text-white">
-            <div className="relative z-10">
-              <p className="text-xl italic text-gray-300 leading-relaxed mb-8">
-                “We cut staffing needs while gaining real analytics on traffic
-                and repeats. Reporting is effortless now.”
-              </p>
-              <div className="flex items-center space-x-4">
-                <img
-                  src="https://i.pravatar.cc/150?u=ops1"
-                  className="w-14 h-14 rounded-full"
-                  alt="Sarah Jenkins Avatar"
-                />
-                <div>
-                  <div className="font-bold">Sarah Jenkins</div>
-                  <div className="text-rp-orange text-sm font-bold uppercase tracking-widest">
-                    Ops Director, Multi-Family
-                  </div>
-                </div>
+              <div
+                className={
+                  i === 0
+                    ? "absolute top-4 right-8 text-8xl text-gray-200 font-serif leading-none z-0 pointer-events-none opacity-50"
+                    : "absolute top-4 right-8 text-8xl text-white/5 font-serif leading-none z-0 pointer-events-none"
+                }
+              >
+                &ldquo;
               </div>
             </div>
-            <div className="absolute top-4 right-8 text-8xl text-white/5 font-serif leading-none z-0 pointer-events-none">
-              “
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

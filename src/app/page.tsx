@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   FinalCTA,
   HowItWorks,
@@ -14,6 +14,9 @@ import SystemsTabSection from "./components/SystemsTabSection";
 import { SYSTEMS } from "./constants";
 
 const App: React.FC = () => {
+  const [activeSystemIndex, setActiveSystemIndex] = useState(0);
+  const currentSystem = SYSTEMS[activeSystemIndex];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -21,13 +24,20 @@ const App: React.FC = () => {
       <main className="flex-grow">
         <Hero />
 
-        <SystemsTabSection systems={SYSTEMS} />
+        <SystemsTabSection
+          systems={SYSTEMS}
+          activeIndex={activeSystemIndex}
+          onTabChange={setActiveSystemIndex}
+        />
 
         {/* New ALPR Specific Sections */}
         <TrustBar />
         <PartnerOpportunity />
         <HowItWorks />
-        <Testimonials />
+        <Testimonials
+          testimonials={currentSystem.testimonials}
+          themeColor={currentSystem.themeColor}
+        />
         <FinalCTA />
       </main>
 
