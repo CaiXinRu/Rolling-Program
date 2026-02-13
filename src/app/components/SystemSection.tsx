@@ -4,6 +4,37 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { SystemData } from "../constants";
 
+/** 從 YouTube watch / youtu.be / embed 網址取得 embed 用 video ID，非 YouTube 回傳 null */
+function getYoutubeEmbedUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    let id: string | null = null;
+
+    if (u.hostname === "www.youtube.com" || u.hostname === "youtube.com") {
+      id = u.searchParams.get("v");
+      if (!id) {
+        const embedMatch = u.pathname.match(/^\/embed\/([^/]+)/);
+        if (embedMatch) id = embedMatch[1];
+      }
+    } else if (u.hostname === "youtu.be") {
+      id = u.pathname.slice(1).split("/")[0];
+    }
+
+    if (id) {
+      // autoplay=1: 自動播放
+      // mute=1: 靜音 (瀏覽器政策通常要求自動播放需靜音)
+      // controls=0: 隱藏控制列 (類似背景影片效果)
+      // loop=1: 循環播放
+      // playlist=[ID]: 循環播放必須指定 playlist 為自己
+      // rel=0: 結束時不顯示推薦影片
+      return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}&rel=0`;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 interface SystemSectionProps {
   system: SystemData;
   reverse?: boolean;
@@ -23,7 +54,7 @@ const SystemSection: React.FC<SystemSectionProps> = ({
       (entries) => {
         if (entries[0]?.isIntersecting) setVideoInView(true);
       },
-      { rootMargin: "100px", threshold: 0.1 }
+      { rootMargin: "100px", threshold: 0.1 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -65,23 +96,36 @@ const SystemSection: React.FC<SystemSectionProps> = ({
             className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-start gap-16`}
           >
             {/* Image Side - Only sticky on desktop (lg:sticky) to prevent stacking issues on mobile */}
-            <div className="w-full lg:w-1/2 relative group lg:sticky lg:top-32" ref={system.video ? videoWrapRef : undefined}>
+            <div
+              className="w-full lg:w-1/2 relative group lg:sticky lg:top-32"
+              ref={system.video ? videoWrapRef : undefined}
+            >
               <div
                 className={`absolute inset-0 translate-x-4 translate-y-4 rounded-xl ${getThemeBgClass()} opacity-20 transition-transform group-hover:translate-x-6 group-hover:translate-y-6`}
               ></div>
               {system.video ? (
                 videoInView ? (
-                  <video
-                    src={system.video}
-                    poster={system.image}
-                    preload="auto"
-                    autoPlay
-                    loop
-                    playsInline
-                    muted
-                    className="relative z-10 rounded-xl shadow-2xl w-full max-w-full object-contain"
-                    aria-label={system.title}
-                  />
+                  getYoutubeEmbedUrl(system.video) ? (
+                    <iframe
+                      src={getYoutubeEmbedUrl(system.video)!}
+                      title={system.title}
+                      className="relative z-10 rounded-xl shadow-2xl w-full max-w-full aspect-video border-0"
+                      allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <video
+                      src={system.video}
+                      poster={system.image}
+                      preload="auto"
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                      className="relative z-10 rounded-xl shadow-2xl w-full max-w-full object-contain"
+                      aria-label={system.title}
+                    />
+                  )
                 ) : (
                   <div className="relative z-10 rounded-xl shadow-2xl w-full max-w-full aspect-video bg-gray-100 overflow-hidden">
                     <Image

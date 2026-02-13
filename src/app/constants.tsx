@@ -146,7 +146,8 @@ export const SYSTEMS: SystemData[] = [
     fullDesc:
       "This solution is specifically designed for public or commercial parking facilities, aiming to achieve fully automated and unmanned management. Based on an AI-driven Automatic License Plate Recognition (ALPR) system, vehicles can enter and exit without stopping, taking a ticket, or touching any equipment.",
     image: "/images/auto-parking-pic.png",
-    video: "/images/auto-parking.mp4",
+    /** 可填 YouTube 影片連結（支援 watch、youtu.be、embed）。不公開(Unlisted)影片可嵌入；私人(Private)僅限指定觀眾無法嵌入。 */
+    video: "https://youtu.be/qu0FGmiOdGQ",
     themeColor: "rp-orange",
     features: [
       "Automated Payments: Multiple smart payment methods for unmanned, automatic fee deductions.",
