@@ -90,6 +90,27 @@ const Footer: React.FC = () => {
               Contact Us
             </h4>
             <address className="not-italic text-gray-400 space-y-3 text-sm">
+              <p className="flex items-center gap-3">
+                <svg
+                  className="w-5 h-5 text-rp-gray shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                <a
+                  href="tel:+18445387267"
+                  className="hover:text-white transition-colors"
+                >
+                  +1 (844) 538-7267
+                </a>
+              </p>
               <p className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 text-rp-gray mt-0.5 shrink-0"
@@ -110,9 +131,7 @@ const Footer: React.FC = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   ></path>
                 </svg>
-                5632 Philadelphia St.
-                <br />
-                Suite 108 Chino, CA 91710
+                Pasadena, CA 91101
               </p>
               <p className="flex items-center gap-3">
                 <svg
@@ -129,12 +148,12 @@ const Footer: React.FC = () => {
                   ></path>
                 </svg>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&to=phil.hahn@rollingprogram.com"
+                  href="https://mail.google.com/mail/?view=cm&to=info@rollingtrans.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  phil.hahn@rollingprogram.com
+                  info@rollingtrans.com
                 </a>
               </p>
             </address>
