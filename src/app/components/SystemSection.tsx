@@ -155,19 +155,18 @@ const SystemSection: React.FC<SystemSectionProps> = ({
               Target Clients
             </h2>
             <p className="text-lg text-gray-600">
-              Industries and partners we serve
-              <br />— from parking operators to property managers and
-              enterprises.
+              Tailored smart access and management solutions for every industry
+              and environment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-[1100px] mx-auto">
             {system.partnerOpportunity.map((sector, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group w-full max-w-[320px] text-center flex flex-col items-center"
               >
-                <div className="w-16 h-16 bg-red-50 text-rp-red rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rp-red group-hover:text-white transition-colors duration-300">
+                <div className="w-16 h-16 bg-red-50 text-rp-red rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rp-red group-hover:text-white transition-colors duration-300 shrink-0">
                   {sector.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2 leading-snug">

@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative pt-32 pb-20 md:pt-48 md:pb-36 overflow-hidden"
+      className="relative pt-32 md:pt-48 md:pb-20 overflow-hidden"
       style={{
         backgroundImage: `url(${HERO_BG_IMAGE})`,
         backgroundSize: "cover",
