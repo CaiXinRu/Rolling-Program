@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} Rolling Program. All rights
+            &copy; {new Date().getFullYear()} RollingProgram. All rights
             reserved.
           </p>
           {/* <div className="flex gap-4">
