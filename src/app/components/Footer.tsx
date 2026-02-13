@@ -4,7 +4,10 @@ import Image from "next/image";
 import React from "react";
 import Logo from "../images/RP_LOGO.png";
 
-function scrollToSystemsAndHash(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+function scrollToSystemsAndHash(
+  e: React.MouseEvent<HTMLAnchorElement>,
+  id: string,
+) {
   e.preventDefault();
   const element = document.getElementById("systems");
   if (element) {
@@ -108,9 +111,9 @@ const Footer: React.FC = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   ></path>
                 </svg>
-                7F, No. 402, Shizheng Road,
+                5632 Philadelphia St.
                 <br />
-                Xitun District, Taichung City 407
+                Suite 108 Chino, CA 91710
               </p>
               <p className="flex items-center gap-3">
                 <svg
@@ -127,12 +130,12 @@ const Footer: React.FC = () => {
                   ></path>
                 </svg>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&to=sales@program.com.tw"
+                  href="https://mail.google.com/mail/?view=cm&to=phil.hahn@rollingprogram.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  sales@program.com.tw
+                  phil.hahn@rollingprogram.com
                 </a>
               </p>
             </address>
