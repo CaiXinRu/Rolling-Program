@@ -1,48 +1,10 @@
 "use client";
 import { Zap } from "lucide-react";
 import React from "react";
-import { SYSTEMS } from "../constants";
 
 const HERO_BG_IMAGE = "/car-outdoor.png";
 
 const Hero: React.FC = () => {
-  const getHoverTextClass = (color: string) => {
-    switch (color) {
-      case "rp-red":
-        return "hover:text-rp-red";
-      case "rp-orange":
-        return "hover:text-rp-orange";
-      case "rp-yellow":
-        return "hover:text-rp-yellow";
-      default:
-        return "hover:text-white";
-    }
-  };
-
-  const TABBED_SYSTEM_IDS = ["smart-parking", "parking-access"];
-
-  const scrollToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    id: string,
-  ) => {
-    e.preventDefault();
-    const scrollTargetId = TABBED_SYSTEM_IDS.includes(id) ? "systems" : id;
-    const element = document.getElementById(scrollTargetId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-      if (TABBED_SYSTEM_IDS.includes(id)) {
-        window.location.hash = id;
-      }
-    }
-  };
-
   return (
     <section
       id="home"
@@ -85,36 +47,6 @@ const Hero: React.FC = () => {
             and gain full visibility with searchable logs, traffic analytics,
             and optional paid access—managed from one simple dashboard.
           </p>
-
-          <div className="flex flex-col md:flex-row w-full max-w-4xl bg-gray-800/40 border border-gray-700 rounded-2xl backdrop-blur-md overflow-hidden p-1.5 gap-1.5 shadow-2xl">
-            {SYSTEMS.map((system) => (
-              <a
-                key={system.id}
-                href={`#${system.id}`}
-                onClick={(e) => scrollToSection(e, system.id)}
-                className={`flex-1 flex flex-col md:flex-row items-center justify-center gap-3 px-4 py-4 md:py-5 rounded-xl transition-all duration-300 group hover:bg-gray-700/50 text-center text-gray-300 ${getHoverTextClass(system.themeColor)}`}
-              >
-                <span className="font-semibold transition-colors duration-300 leading-tight">
-                  {system.title}
-                </span>
-                <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center border border-gray-600 group-hover:border-current transition-colors duration-300 shrink-0 hidden md:flex">
-                  <svg
-                    className="w-3.5 h-3.5 text-current"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.5}
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>
