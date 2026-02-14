@@ -23,11 +23,12 @@ function getYoutubeEmbedUrl(url: string): string | null {
     if (id) {
       // autoplay=1: 自動播放
       // mute=1: 靜音 (瀏覽器政策通常要求自動播放需靜音)
+      // playsinline=1: 手機（尤其 iOS）需此參數才能頁面內自動播放
       // controls=0: 隱藏控制列 (類似背景影片效果)
       // loop=1: 循環播放
       // playlist=[ID]: 循環播放必須指定 playlist 為自己
       // rel=0: 結束時不顯示推薦影片
-      return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${id}&rel=0`;
+      return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&playsinline=1&controls=0&loop=1&playlist=${id}&rel=0`;
     }
   } catch {
     return null;
@@ -110,8 +111,9 @@ const SystemSection: React.FC<SystemSectionProps> = ({
                       src={getYoutubeEmbedUrl(system.video)!}
                       title={system.title}
                       className="relative z-10 rounded-xl shadow-2xl w-full max-w-full aspect-video border-0"
-                      allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture; playsinline; web-share"
                       allowFullScreen
+                      loading="lazy"
                     />
                   ) : (
                     <video
