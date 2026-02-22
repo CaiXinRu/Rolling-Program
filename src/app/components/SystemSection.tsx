@@ -1,6 +1,7 @@
 "use client";
 import { BoxIcon, CheckIcon } from "lucide-react";
-import React from "react";
+import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 import { SystemData } from "../constants";
 
 interface SystemSectionProps {
@@ -12,6 +13,22 @@ const SystemSection: React.FC<SystemSectionProps> = ({
   system,
   reverse = false,
 }) => {
+  const videoWrapRef = useRef<HTMLDivElement>(null);
+  const [videoInView, setVideoInView] = useState(false);
+
+  useEffect(() => {
+    if (!system.video || !videoWrapRef.current) return;
+    const el = videoWrapRef.current;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setVideoInView(true);
+      },
+      { rootMargin: "100px", threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [system.video]);
+
   const getThemeTextClass = () => {
     switch (system.themeColor) {
       case "rp-red":
@@ -48,15 +65,45 @@ const SystemSection: React.FC<SystemSectionProps> = ({
             className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-start gap-16`}
           >
             {/* Image Side - Only sticky on desktop (lg:sticky) to prevent stacking issues on mobile */}
-            <div className="w-full lg:w-1/2 relative group lg:sticky lg:top-32">
+            <div className="w-full lg:w-1/2 relative group lg:sticky lg:top-32" ref={system.video ? videoWrapRef : undefined}>
               <div
                 className={`absolute inset-0 translate-x-4 translate-y-4 rounded-xl ${getThemeBgClass()} opacity-20 transition-transform group-hover:translate-x-6 group-hover:translate-y-6`}
               ></div>
-              <img
-                src={system.image}
-                alt={system.title}
-                className="relative z-10 rounded-xl shadow-2xl w-full h-[300px] md:h-[450px] object-cover"
-              />
+              {system.video ? (
+                videoInView ? (
+                  <video
+                    src={system.video}
+                    poster={system.image}
+                    preload="auto"
+                    autoPlay
+                    loop
+                    playsInline
+                    muted
+                    className="relative z-10 rounded-xl shadow-2xl w-full max-w-full object-contain"
+                    aria-label={system.title}
+                  />
+                ) : (
+                  <div className="relative z-10 rounded-xl shadow-2xl w-full max-w-full aspect-video bg-gray-100 overflow-hidden">
+                    <Image
+                      src={system.image}
+                      alt={system.title}
+                      fill
+                      className="object-contain rounded-xl"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
+                )
+              ) : (
+                <div className="relative z-10 rounded-xl shadow-2xl w-full h-[300px] md:h-[450px] overflow-hidden">
+                  <Image
+                    src={system.image}
+                    alt={system.title}
+                    fill
+                    className="object-cover rounded-xl"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Content Side */}
@@ -122,10 +169,12 @@ const SystemSection: React.FC<SystemSectionProps> = ({
                         key={idx}
                         className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center group hover:shadow-lg hover:border-transparent transition-all duration-300"
                       >
-                        <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
-                          <img
+                        <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-50 border border-gray-100 relative">
+                          <Image
                             src={product.image}
                             alt={product.name}
+                            width={64}
+                            height={64}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         </div>

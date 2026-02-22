@@ -29,7 +29,8 @@ const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({
   onTabChange,
 }) => {
   const [internalIndex, setInternalIndex] = useState(0);
-  const isControlled = controlledIndex !== undefined && onTabChange !== undefined;
+  const isControlled =
+    controlledIndex !== undefined && onTabChange !== undefined;
   const activeIndex = isControlled ? controlledIndex : internalIndex;
 
   const syncFromHash = useCallback(() => {
@@ -69,32 +70,6 @@ const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({
     [systems.length, setTab],
   );
 
-  const getThemeTextClass = (themeColor: string) => {
-    switch (themeColor) {
-      case "rp-red":
-        return "text-rp-red";
-      case "rp-orange":
-        return "text-rp-orange";
-      case "rp-yellow":
-        return "text-rp-yellow";
-      default:
-        return "text-rp-red";
-    }
-  };
-
-  const getThemeBorderClass = (themeColor: string) => {
-    switch (themeColor) {
-      case "rp-red":
-        return "border-rp-red";
-      case "rp-orange":
-        return "border-rp-orange";
-      case "rp-yellow":
-        return "border-rp-yellow";
-      default:
-        return "border-rp-red";
-    }
-  };
-
   const getHoverTextClass = (themeColor: string) => {
     switch (themeColor) {
       case "rp-red":
@@ -133,11 +108,10 @@ const SystemsTabSection: React.FC<SystemsTabSectionProps> = ({
                 tabIndex={activeIndex === index ? 0 : -1}
                 onClick={() => setTab(index)}
                 onKeyDown={(e) => onKeyDown(e, index)}
-                className={`flex-1 rounded-full border-2 bg-white px-6 py-3.5 text-center font-semibold leading-tight transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rp-red ${
+                className={`flex-1 rounded-full border-2 px-6 py-3.5 text-center font-semibold leading-tight transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rp-red ${
                   activeIndex === index
-                    ? `${getThemeTextClass(system.themeColor)} ${getThemeBorderClass(system.themeColor)}`
-                    : "border-gray-200 text-rp-dark hover:border-gray-300 " +
-                      getHoverTextClass(system.themeColor)
+                    ? `bg-rp-red text-white`
+                    : "bg-white border-gray-200 text-rp-dark hover:text-rp-red hover:border-rp-red"
                 }`}
               >
                 {system.title}

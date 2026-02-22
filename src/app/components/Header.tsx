@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Logo from "../images/RP_LOGO.png";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,10 +25,10 @@ const Header: React.FC = () => {
         {/* Logo */}
         <a href="#" className="flex items-center">
           <Image
-            src={Logo}
+            src="/images/RP_LOGO.png"
             alt="Rolling Program Logo"
-            width={Logo.width}
-            height={Logo.height}
+            width={220}
+            height={48}
             className="h-12 w-auto object-contain"
             style={{ maxWidth: 220 }}
           />

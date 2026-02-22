@@ -21,10 +21,6 @@ import {
   Users,
   Warehouse,
 } from "lucide-react";
-import LicensePlateRecognitionImage from "./images/License Plate Recognition.png";
-import ParkVisionKioskImage from "./images/ParkVision Payment Kiosk.png";
-import PlateReadEdgeImage from "./images/PlateRead Edge.png";
-
 export interface SystemProduct {
   name: string;
   description: string;
@@ -37,6 +33,8 @@ export interface SystemData {
   shortDesc: string;
   fullDesc: string;
   image: string;
+  /** 若有提供則以影片取代主視覺圖片 */
+  video?: string;
   features: string[];
   products: SystemProduct[];
   themeColor: string;
@@ -83,7 +81,7 @@ export const SYSTEMS: SystemData[] = [
         name: "PlateRead Edge",
         description:
           "Weatherproof camera system with onboard plate recognition processing.",
-        image: PlateReadEdgeImage.src,
+        image: "/images/plateRead-edge.png",
       },
     ],
     partnerOpportunity: [
@@ -143,13 +141,13 @@ export const SYSTEMS: SystemData[] = [
   },
   {
     id: "auto-parking",
-    title: "Automated Parking Solution",
+    title: "Automated Parking Management Solution",
     shortDesc: "Achieve fully automated and unmanned parking management.",
     fullDesc:
       "This solution is specifically designed for public or commercial parking facilities, aiming to achieve fully automated and unmanned management. Based on an AI-driven Automatic License Plate Recognition (ALPR) system, vehicles can enter and exit without stopping, taking a ticket, or touching any equipment.",
-    image:
-      "https://images.unsplash.com/photo-1568738009519-52d1bad47858?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&q=80&w=800",
-    themeColor: "rp-red",
+    image: "/images/auto-parking-pic.png",
+    video: "/images/auto-parking.mp4",
+    themeColor: "rp-orange",
     features: [
       "Automated Payments: Multiple smart payment methods for unmanned, automatic fee deductions.",
       "Cloud-Based Accounting Platform: Real-time, accurate cloud-based reports and financial management.",
@@ -162,13 +160,13 @@ export const SYSTEMS: SystemData[] = [
         name: "License Plate Recognition",
         description:
           "AI-powered camera system for instantaneous vehicle identification and seamless automated entry.",
-        image: LicensePlateRecognitionImage.src,
+        image: "/images/license-plate-recognition.png",
       },
       {
         name: "ParkVision Payment Kiosk",
         description:
           "Interactive pay-on-foot station with multi-payment support.",
-        image: ParkVisionKioskImage.src,
+        image: "/images/parkVision-payment-kiosk.png",
       },
     ],
     partnerOpportunity: [

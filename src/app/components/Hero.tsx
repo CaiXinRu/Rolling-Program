@@ -2,7 +2,7 @@
 import { Zap } from "lucide-react";
 import React from "react";
 
-const HERO_BG_IMAGE = "/car-outdoor.png";
+const HERO_BG_IMAGE = "/images/car-outdoor.png";
 
 const Hero: React.FC = () => {
   return (

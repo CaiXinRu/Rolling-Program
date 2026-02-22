@@ -2,7 +2,6 @@
 import { HouseIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import Logo from "../images/RP_LOGO.png";
 
 function scrollToSystemsAndHash(
   e: React.MouseEvent<HTMLAnchorElement>,
@@ -28,10 +27,10 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6 bg-white rounded-lg p-2 w-fit">
               <Image
-                src={Logo}
+                src="/images/RP_LOGO.png"
                 alt="Rolling Program Logo"
-                width={Logo.width}
-                height={Logo.height}
+                width={220}
+                height={48}
                 className="h-12 w-auto object-contain"
                 style={{ maxWidth: 220 }}
               />

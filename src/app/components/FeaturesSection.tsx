@@ -7,6 +7,7 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 import { SystemData, TRUST_ITEMS } from "../constants";
 
@@ -78,11 +79,13 @@ export const PartnerOpportunity: React.FC = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
           </div>
-          <div className="order-1 lg:order-2">
-            <img
+          <div className="order-1 lg:order-2 relative w-full aspect-[4/3] max-w-xl mx-auto">
+            <Image
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=1000"
               alt="Partner Program"
-              className="rounded-[2.5rem] shadow-2xl border border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700"
+              fill
+              className="rounded-[2.5rem] shadow-2xl border border-white/10 transform -rotate-2 hover:rotate-0 transition-transform duration-700 object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -212,9 +215,11 @@ export const Testimonials: React.FC<TestimonialsProps> = ({
                   &ldquo;{t.feedback}&rdquo;
                 </p>
                 <div className="flex items-center space-x-4">
-                  <img
+                  <Image
                     src={`https://i.pravatar.cc/150?u=${t.imageId}`}
-                    className="w-14 h-14 rounded-full"
+                    width={56}
+                    height={56}
+                    className="w-14 h-14 rounded-full object-cover"
                     alt={`${t.customerName} Avatar`}
                   />
                   <div>
