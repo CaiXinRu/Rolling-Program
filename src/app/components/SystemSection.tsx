@@ -104,11 +104,11 @@ const SystemSection: React.FC<SystemSectionProps> = ({
               <div
                 className={`absolute inset-0 translate-x-4 translate-y-4 rounded-xl ${getThemeBgClass()} opacity-20 transition-transform group-hover:translate-x-6 group-hover:translate-y-6`}
               ></div>
-              {system.video ? (
-                videoInView ? (
-                  getYoutubeEmbedUrl(system.video) ? (
+              {videoInView ? (
+                system.youtubeVideo ? (
+                  getYoutubeEmbedUrl(system.youtubeVideo) ? (
                     <iframe
-                      src={getYoutubeEmbedUrl(system.video)!}
+                      src={getYoutubeEmbedUrl(system.youtubeVideo)!}
                       title={system.title}
                       className="relative z-10 rounded-xl shadow-2xl w-full max-w-full aspect-video border-0"
                       allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture; playsinline; web-share"
